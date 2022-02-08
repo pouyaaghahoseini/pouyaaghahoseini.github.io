@@ -1,19 +1,41 @@
 <style>
-  input[type=button],
-  input[type=submit] {
-    background-color: #62529c;
-    border: none;
-    color: #fff;
-    padding: 15px 30px;
+  input[type=text] {
+    background-color: #ffffff;
+    border: 3px solid #62529c;
+    color: rgb(0, 0, 0);
+    padding: 10px 10px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
   }
+  input[type=button],
+  input[type=submit] {
+    background-color: #62529c;
+    border: 3px solid #62529c;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  label {
+  color: #460066;
+  font: Verdana;
+  font-weight: bold;
+  display: block;
+  width: 150px;
+  float: center;
+  }
 </style>
 <html>
   <body>
-    <input type="button" value="Button">
-    <input type="submit" value="Submit">
+    <center>
+      <form action="twitch-sim.html">
+        <label for="chname">Channel name:</label>
+        <input type="text" id="chname" name="chname" value="creeesart"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </center>
     <!-- Add a placeholder for the Twitch embed -->
     <div id="twitch-embed"></div>
 
@@ -25,7 +47,7 @@
       new Twitch.Embed("twitch-embed", {
         width: 854,
         height: 480,
-        channel: "zanoxvii",
+        channel: document.getElementById("chname"),
         // Only needed if this page is going to be embedded on other websites
         parent: ["pouyaaghahoseini.github.io", "embed.example.com", "othersite.example.com"]
       });
