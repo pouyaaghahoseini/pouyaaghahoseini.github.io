@@ -29,13 +29,25 @@
 </style>
 <html>
   <body>
+    <script>
+      function channelhandler(){
+        var temp = document.getElementById("chname").value
+        window.alert(temp);
+        document.getElementById("chname").value = temp
+        document.getElementById("twitch-embed").channel = temp
+      }
+      </script>
     <center>
-      <form action="twitch-sim.html">
+      <form onsubmit="return channelhandler()" id="channelForm" action="twitch-sim.html">
         <label for="chname">Channel name:</label>
         <input type="text" id="chname" name="chname" value="creeesart"><br><br>
         <input type="submit" value="Submit">
       </form>
     </center>
+    <script>
+      var x = document.getElementById("chname").value
+      document.write(x) 
+    </script>
     <!-- Add a placeholder for the Twitch embed -->
     <div id="twitch-embed"></div>
 
@@ -47,7 +59,7 @@
       new Twitch.Embed("twitch-embed", {
         width: 854,
         height: 480,
-        channel: document.getElementById("chname"),
+        channel: document.getElementById("chname").value,
         // Only needed if this page is going to be embedded on other websites
         parent: ["pouyaaghahoseini.github.io", "embed.example.com", "othersite.example.com"]
       });
